@@ -5,5 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CarRepository extends JpaRepository<Car, Integer> {
 
-    Car findBySpeed(Integer speed);
+    Car findBySpeed(Integer speed
+    Car findByName(String name)
 }

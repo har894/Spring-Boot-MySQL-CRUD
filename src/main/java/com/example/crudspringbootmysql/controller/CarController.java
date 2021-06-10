@@ -21,7 +21,16 @@ public class CarController {
     }
 
     @GetMapping("/Car/{name}")
-    public Car getCarName(@PathVariable String name ){return carService.getCarName(name);};
+    public Car getCarName(@PathVariable String name) {
+        return carService.getCarName(name);
+    }
+
+    @GetMapping("/carImg/{imgURL}")
+    public Car getImgURL(@PathVariable String imgURL) {
+        return carService.getImgURL(imgURL);
+    }
+
+
 }
 
 

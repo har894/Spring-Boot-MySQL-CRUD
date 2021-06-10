@@ -19,6 +19,7 @@ public class CarService {
 
     public Car getCarName(String name){return carRepository.findByName(name);}
 
+    public Car getImgURL(String imgURL){return carRepository.findByImgURL(imgURL);}
 
 }
 

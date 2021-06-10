@@ -23,4 +23,19 @@ public class CarController {
     public Car findCarById(@PathVariable int id) {
         return carService.getCarById(id);
     }
+
+    @GetMapping("/carSpeed/{speed}")
+    public Car findCarBySpeed(@PathVariable int speed) {
+        return carService.getCarBySpeed(speed);
+    }
 }
+
+
+
+
+
+
+
+
+
+

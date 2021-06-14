@@ -19,7 +19,16 @@ public class CarController {
     public List<Car> getCars() {
         return carService.getCars();
     }
+    @GetMapping("/carId/{id}")
+    public Car findCarById(@PathVariable int id) {
+        return carService.getCarById(id);
+    }
 
+    @GetMapping("/carSpeed/{speed}")
+    public Car findCarBySpeed(@PathVariable int speed) {
+        return carService.getCarBySpeed(speed);
+    }
+}
     @GetMapping("/carId/{id}")
     public Car findCarById(@PathVariable int id) {
         return carService.getCarById(id);
@@ -27,5 +36,4 @@ public class CarController {
     @GetMapping("/Car/{name}")
     public Car getCarName(@PathVariable String name ){return carService.getCarName(name);};
 }
-
 

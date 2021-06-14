@@ -22,6 +22,8 @@ public class CarService {
 
     public Car getCarBySpeed(int speed) {
         return carRepository.findBySpeed(speed);
+    public Car getCarById(int id) {
+        return carRepository.findById(id).orElse(null);
     }
     public Car getCarName(String name){return carRepository.findByName(name);}
 

@@ -20,6 +20,10 @@ public class CarController {
         return carService.getCars();
     }
 
+    @GetMapping("/carId/{id}")
+    public Car findCarById(@PathVariable int id) {
+        return carService.getCarById(id);
+    }
     @GetMapping("/Car/{name}")
     public Car getCarName(@PathVariable String name ){return carService.getCarName(name);};
 }

@@ -27,9 +27,24 @@ public class ScoreService {
         if (teamNumber == 1) {
             currentScore = tempScore.getFirstTeamScore();
             tempScore.setFirstTeamScore(currentScore + 1);
-        } else if (teamNumber == 2){
+        } else if (teamNumber == 2) {
             currentScore = tempScore.getSecondTeamScore();
             tempScore.setSecondTeamScore(currentScore + 1);
+        }
+        scoreRepository.save(tempScore);
+        return scoreRepository.findById(id).orElseGet(null);
+    }
+
+    public Score reduceScore(int id, int teamNumber) {
+        Optional<Score> tempOptionScore = scoreRepository.findById(id);
+        Score tempScore = tempOptionScore.get();
+        int currentScore;
+        if (teamNumber == 1) {
+            currentScore = tempScore.getFirstTeamScore();
+            tempScore.setFirstTeamScore(currentScore - 1);
+        } else if (teamNumber == 2) {
+            currentScore = tempScore.getSecondTeamScore();
+            tempScore.setSecondTeamScore(currentScore - 1);
         }
         scoreRepository.save(tempScore);
         return scoreRepository.findById(id).orElseGet(null);

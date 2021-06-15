@@ -31,5 +31,13 @@ public class ScoreController {
     public Score reduceScore(@PathVariable int id, @PathVariable int teamNumber) {
         return scoreService.reduceScore(id, teamNumber);
     }
+    @PostMapping("/incrementSet/{id}/{teamNumber}")
+    public Score  incrementSetScore(@PathVariable int id, @PathVariable int teamNumber) {
+        return scoreService.incrementSetScore(id, teamNumber);
+    }
+    @PostMapping("/reduceSet/{id}/{teamNumber}")
+    public Score reduceSetScore(@PathVariable int id, @PathVariable int teamNumber) {
+        return scoreService.reduceSetScore(id, teamNumber);
+    }
 }
 

@@ -1,23 +1,17 @@
 package com.example.crudspringbootmysql.controller;
 
-import com.example.crudspringbootmysql.entity.Car;
 import com.example.crudspringbootmysql.entity.Score;
-import com.example.crudspringbootmysql.service.CarService;
 import com.example.crudspringbootmysql.service.ScoreService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
+@CrossOrigin
 @RestController
 public class ScoreController {
     @Autowired
     private ScoreService scoreService;
 
-    @GetMapping("/scoreId/{id}")
+    @GetMapping("/gameId/{id}")
     public Score findScoreByGameId(@PathVariable int id) {
         return scoreService.getScoreByGameId(id);
     }

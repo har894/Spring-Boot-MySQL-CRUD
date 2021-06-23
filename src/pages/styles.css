@@ -1,0 +1,34 @@
+.score-box {
+    float:left;
+    width: auto;
+    height: auto;
+    background: red;
+}
+
+.team-name {
+    float: left;
+    margin: 0 2px;
+    font-size: 18px;
+    padding: 3px 5px;
+    background: #839B97;
+    text-align: center;
+}
+
+.team-score {
+    float: left;
+    margin: 0 2px;
+    font-size: 16px;
+    background: #4E4E4E;
+    padding: 4px 5px;
+    text-align: center;
+}
+
+.team-set-score {
+    float: left;
+    margin: 0 2px;
+    font-size: 12px;
+    background:red;
+    padding: 3px 5px;
+    text-align: center;
+}
+

@@ -1,13 +1,9 @@
 package com.example.crudspringbootmysql.service;
 
-import com.example.crudspringbootmysql.entity.Car;
 import com.example.crudspringbootmysql.entity.Score;
-import com.example.crudspringbootmysql.repository.CarRepository;
 import com.example.crudspringbootmysql.repository.ScoreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 import java.util.Optional;
 
 @Service

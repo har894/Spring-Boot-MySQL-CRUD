@@ -45,5 +45,33 @@ public class ScoreService {
         scoreRepository.save(tempScore);
         return scoreRepository.findById(id).orElseGet(null);
     }
+    public Score incrementSetScore(int id, int teamNumber) {
+        Optional<Score> tempOptionalScore = scoreRepository.findById(id);
+        Score tempSetScore = tempOptionalScore.get();
+        int currentScore;
+        if (teamNumber == 1) {
+            currentScore = tempSetScore.getFirstTeamSetScore();
+            tempSetScore.setFirstTeamSetScore(currentScore + 1);
+        } else if (teamNumber == 2) {
+            currentScore = tempSetScore.getSecondTeamSetScore();
+            tempSetScore.setSecondTeamSetScore(currentScore + 1);
+        }
+        scoreRepository.save(tempSetScore);
+        return scoreRepository.findById(id).orElseGet(null);
+    }
+    public Score reduceSetScore(int id, int teamNumber) {
+        Optional<Score> tempOptionalScore = scoreRepository.findById(id);
+        Score tempSetScore = tempOptionalScore.get();
+        int currentScore;
+        if (teamNumber == 1) {
+            currentScore = tempSetScore.getFirstTeamSetScore();
+            tempSetScore.setFirstTeamSetScore(currentScore - 1);
+        } else if (teamNumber == 2) {
+            currentScore = tempSetScore.getSecondTeamSetScore();
+            tempSetScore.setSecondTeamSetScore(currentScore - 1);
+        }
+        scoreRepository.save(tempSetScore);
+        return scoreRepository.findById(id).orElseGet(null);
+    }
 }
 

@@ -1,8 +1,22 @@
+#dashboard{
+    float: left;
+    margin: 0 auto;
+    width: 960px;
+    height: auto;
+}
+#score-box-line{
+    float: left;
+    width: 960px;
+    height: 27px;
+    padding: 5px;
+    background: black;
+}
+
 .score-box {
-    float:left;
+    display: inline;
+    float: left;
     width: auto;
     height: auto;
-    background: red;
 }
 
 .team-name {
@@ -27,8 +41,19 @@
     float: left;
     margin: 0 2px;
     font-size: 12px;
-    background:red;
+    background: red;
     padding: 3px 5px;
     text-align: center;
 }
+
+/* Setting box */
+.setting-box {
+    display: inline;
+    float: left;
+    padding: 5px;
+    width: 960px;
+    height: 100%;
+    background: red;
+}
+
 

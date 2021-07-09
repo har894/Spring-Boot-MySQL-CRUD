@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>ScoreChangeBox</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="request.js"></script>
+
+</head>
+
+<body>
+<div id="dashboard">
+    <div id="score-box-line">
+        <div class="score-box">
+            <p id="first-team-name" class="team-name"></p>
+            <p id="first-team-score" class="team-score"></p>
+            <p id="first-team-set-score" class="team-set-score"></p>
+            <p id="second-team-set-score" class="team-set-score"></p>
+            <p id="second-team-score" class="team-score"></p>
+            <p id="second-team-name" class="team-name"></p>
+        </div>
+    </div>
+    <div class="setting-box">
+        <button onclick="scoresFunction()">Scores</button>
+        <button onclick="setsFunction()">Set</button>
+        <div id="scoreSetting" style="display: none">
+            <p id="scoresChange">Scores</p>
+            <br>
+            <button onclick="incrementFirstTeamScoreFunction()" id="score-first-team-increment"></button>
+            <br>
+            <br>
+            <button onclick="reduceFirstTeamScoreFunction()" id="score-first-team-reduce"></button>
+            <br>
+            <br>
+            <br>
+            <button onclick="incrementSecondTeamScoreFunction()" id="score-second-team-increment"></button>
+            <br>
+            <br>
+            <button onclick="reduceSecondTeamScoreFunction()" id="score-second-team-reduce"></button>
+        </div>
+        <div id="setSetting" style="display: none">
+            <p id="setsChange">Sets</p>
+            <br>
+            <button onclick="incrementFirstTeamSetFunction()" id="set-first-team-increment"></button>
+            <br>
+            <br>
+            <button onclick="reduceFirstTeamSetFunction()" id="set-first-team-reduce"></button>
+            <br>
+            <br>
+            <button onclick="incrementSecondTeamSetFunction()" id="set-second-team-increment"></button>
+            <br>
+            <br>
+            <button onclick="reduceSecondTeamSetFunction()" id="set-second-team-reduce"></button>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

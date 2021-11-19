@@ -5,11 +5,26 @@ import com.example.crudspringbootmysql.service.ScoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @CrossOrigin
 @RestController
 public class ScoreController {
     @Autowired
     private ScoreService scoreService;
+
+    @GetMapping("/arduino")
+    public Map findScoreByGameId() {
+        int id = 1;
+        Score score = scoreService.getScoreByGameId(id);
+        Map<String, Integer> integerList = new HashMap<>();
+        integerList.put("ft",score.getFirstTeamScore());
+        integerList.put("st",score.getSecondTeamScore());
+        integerList.put("fts",score.getFirstTeamSetScore());
+        integerList.put("sts",score.getSecondTeamSetScore());
+        return integerList;
+    }
 
     @GetMapping("/gameId/{id}")
     public Score findScoreByGameId(@PathVariable int id) {

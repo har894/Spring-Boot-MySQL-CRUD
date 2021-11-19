@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
 
 <head>
     <meta charset="UTF-8">
     <title>ScoreBoard</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="request.js"></script>
+    <link th:href="@{/styles.css}" rel="stylesheet"/>
+    <script th:src="@{/pooling.js}"></script>
 </head>
 
 <body>

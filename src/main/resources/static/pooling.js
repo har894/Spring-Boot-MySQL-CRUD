@@ -15,55 +15,55 @@ function loadData() {
            document.getElementById("second-team-name").innerText = myObj.secondTeamName;
         }
     }
-    xmlhttp.open("GET", "http://localhost:9191/gameId/1", true);
+    xmlhttp.open("GET", "http://37.252.67.92:9191/gameId/1", true);
     xmlhttp.send();
 }
 
 function incrementFirstTeamScoreFunction() {
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", "http://localhost:9191/increment/1/1", true);
+    xmlhttp.open("POST", "http://37.252.67.92:9191/increment/1/1", true);
     xmlhttp.send();
 }
 
 function reduceFirstTeamScoreFunction() {
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", "http://localhost:9191/reduce/1/1", true);
+    xmlhttp.open("POST", "http://37.252.67.92:9191/reduce/1/1", true);
     xmlhttp.send();
 }
 
 function incrementSecondTeamScoreFunction() {
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", "http://localhost:9191/increment/1/2", true);
+    xmlhttp.open("POST", "http://37.252.67.92:9191/increment/1/2", true);
     xmlhttp.send();
 }
 
 function reduceSecondTeamScoreFunction() {
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", "http://localhost:9191/reduce/1/2", true);
+    xmlhttp.open("POST", "http://37.252.67.92:9191/reduce/1/2", true);
     xmlhttp.send();
 }
 
 function incrementFirstTeamSetFunction() {
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", "http://localhost:9191/incrementSet/1/1", true);
+    xmlhttp.open("POST", "http://37.252.67.92:9191/incrementSet/1/1", true);
     xmlhttp.send();
 }
 
 function reduceFirstTeamSetFunction() {
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", "http://localhost:9191/reduceSet/1/1", true);
+    xmlhttp.open("POST", "http://37.252.67.92:9191/reduceSet/1/1", true);
     xmlhttp.send();
 }
 
 function incrementSecondTeamSetFunction() {
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", "http://localhost:9191/incrementSet/1/2", true);
+    xmlhttp.open("POST", "http://37.252.67.92:9191/incrementSet/1/2", true);
     xmlhttp.send();
 }
 
 function reduceSecondTeamSetFunction() {
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", "http://localhost:9191/reduceSet/1/2", true);
+    xmlhttp.open("POST", "http://37.252.67.92:9191/reduceSet/1/2", true);
     xmlhttp.send();
 }
 

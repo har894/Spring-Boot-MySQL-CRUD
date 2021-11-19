@@ -15,7 +15,7 @@ public class DashboardController {
         return "dashboard";
     }
 
-    @GetMapping("/")
+    @GetMapping("/view")
     public String main(Model model) {
 
         return "index";

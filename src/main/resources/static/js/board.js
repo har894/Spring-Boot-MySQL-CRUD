@@ -2,6 +2,9 @@ var intervalId = window.setInterval(function(){
     loadData();
 }, 150);
 
+var gameID = 2;
+var envURI = "http://37.252.67.92:9191";
+
 function loadData() {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
@@ -14,65 +17,81 @@ function loadData() {
            document.getElementById("second-team-score").innerText = myObj.secondTeamScore;
            document.getElementById("second-team-name").innerText = myObj.secondTeamName;
 
-           document.getElementById("score-first-team-increment").innerText = myObj.firstTeamName + " :+1";
-           document.getElementById("score-first-team-reduce").innerText = myObj.firstTeamName + " :-1";
-           document.getElementById("score-second-team-increment").innerText = myObj.secondTeamName + " :+1";
-           document.getElementById("score-second-team-reduce").innerText = myObj.secondTeamName + " :-1";
-           document.getElementById("set-first-team-increment").innerText = myObj.firstTeamName + " :+1";
-           document.getElementById("set-first-team-reduce").innerText = myObj.firstTeamName + " :-1";
-           document.getElementById("set-second-team-increment").innerText = myObj.secondTeamName + " :+1";
-           document.getElementById("set-second-team-reduce").innerText = myObj.secondTeamName + " :-1";
+           document.getElementById("score-first-team-increment").innerText = myObj.firstTeamName + "+";
+           document.getElementById("score-first-team-reduce").innerText = myObj.firstTeamName + "-";
+           document.getElementById("score-second-team-increment").innerText = myObj.secondTeamName + "+";
+           document.getElementById("score-second-team-reduce").innerText = myObj.secondTeamName + "-";
+           document.getElementById("set-first-team-increment").innerText = myObj.firstTeamName + "set +";
+           document.getElementById("set-first-team-reduce").innerText = myObj.firstTeamName + "set -";
+           document.getElementById("set-second-team-increment").innerText = myObj.secondTeamName + "set +";
+           document.getElementById("set-second-team-reduce").innerText = myObj.secondTeamName + "set -";
         }
     }
-    xmlhttp.open("GET", "http://37.252.67.92:9191/gameId/1", true);
+    xmlhttp.open("GET", envURI+"/gameId/"+gameID, true);
     xmlhttp.send();
 }
 
+//Reset Score
+function resetScore() {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("POST", envURI+"/resetScore", true);
+    xmlhttp.send();
+}
+
+function resetSet() {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("POST", envURI+"/resetSet", true);
+    xmlhttp.send();
+}
+
+//Increment Scores
 function incrementFirstTeamScoreFunction() {
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", "http://37.252.67.92:9191/increment/1/1", true);
-    xmlhttp.send();
-}
-
-function reduceFirstTeamScoreFunction() {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", "http://37.252.67.92:9191/reduce/1/1", true);
+    xmlhttp.open("POST", envURI+"/increment/"+gameID+"/1", true);
     xmlhttp.send();
 }
 
 function incrementSecondTeamScoreFunction() {
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", "http://37.252.67.92:9191/increment/1/2", true);
+    xmlhttp.open("POST", envURI+"/increment/"+gameID+"/2", true);
+    xmlhttp.send();
+}
+
+//Reduce scores
+function reduceFirstTeamScoreFunction() {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("POST", envURI+"/reduce/"+gameID+"/1", true);
     xmlhttp.send();
 }
 
 function reduceSecondTeamScoreFunction() {
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", "http://37.252.67.92:9191/reduce/1/2", true);
+    xmlhttp.open("POST", envURI+"/reduce/"+gameID+"/2", true);
     xmlhttp.send();
 }
 
+//Increment functions
 function incrementFirstTeamSetFunction() {
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", "http://37.252.67.92:9191/incrementSet/1/1", true);
-    xmlhttp.send();
-}
-
-function reduceFirstTeamSetFunction() {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", "http://37.252.67.92:9191/reduceSet/1/1", true);
+    xmlhttp.open("POST", envURI +"/incrementSet/"+gameID+"/1", true);
     xmlhttp.send();
 }
 
 function incrementSecondTeamSetFunction() {
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", "http://37.252.67.92:9191/incrementSet/1/2", true);
+    xmlhttp.open("POST", envURI +"/incrementSet/"+gameID+"/2", true);
+    xmlhttp.send();
+}
+
+function reduceFirstTeamSetFunction() {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("POST", envURI+"/reduceSet/"+gameID+"/1", true);
     xmlhttp.send();
 }
 
 function reduceSecondTeamSetFunction() {
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", "http://37.252.67.92:9191/reduceSet/1/2", true);
+    xmlhttp.open("POST", envURI+"/reduceSet/"+gameID+"/2", true);
     xmlhttp.send();
 }
 

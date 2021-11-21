@@ -6,57 +6,102 @@
 
     <meta charset="UTF-8">
     <title>ScoreChangeBox</title>
-    <link th:href="@{/styles.css}" rel="stylesheet"/>
-    <script th:src="@{/board.js}"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+    <link rel="stylesheet" th:href="@{/css/bootstrap/bootstrap.min.css}"/>
+    <script th:src="@{/js/board.js}"></script>
+    <script th:src="@{/js/bootstrap.bundle.js}"></script>
 </head>
 
 <body>
 <div id="dashboard">
-    <div id="score-box-line">
-        <div class="score-box">
-            <p id="first-team-name" class="team-name"></p>
-            <p id="first-team-score" class="team-score"></p>
-            <p id="first-team-set-score" class="team-set-score"></p>
-            <p id="second-team-set-score" class="team-set-score"></p>
-            <p id="second-team-score" class="team-score"></p>
-            <p id="second-team-name" class="team-name"></p>
-        </div>
+    <table>
+        <tr class="team away">
+            <td class="name" id="first-team-name"></td>
+            <td class="inning current-inning" id="first-team-score"></td>
+            <td class="inning">25</td>
+            <td class="inning">25</td>
+            <td class="total" style="color: #ff0000;" id="first-team-set-score">0</td>
+        </tr>
+        <tr class="team home">
+            <td class="name" id="second-team-name"></td>
+            <td class="inning current-inning" id="second-team-score"></td>
+            <td class="inning">21</td>
+            <td class="inning">14</td>
+            <td class="total" style="color: #ff0000;" id="second-team-set-score">0</td>
+        </tr>
+    </table>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <button class="col-md-4 btn btn-success my-1 p-3" onclick="incrementFirstTeamScoreFunction()"
+                id="score-first-team-increment" style="height: 160px !important;"></button>
+        <div class="col-md-2"></div>
+        <button class="col-md-4 btn btn-danger my-1 p-3" onclick="reduceFirstTeamScoreFunction()"
+                id="score-first-team-reduce" style="height: 160px !important;"></button>
+        <div class="col-md-1"></div>
     </div>
-    <div class="setting-box">
-        <button onclick="scoresFunction()">Scores</button>
-        <button onclick="setsFunction()">Set</button>
-        <div id="scoreSetting" style="display: none">
-            <p id="scoresChange">Scores</p>
-            <br>
-            <button onclick="incrementFirstTeamScoreFunction()" id="score-first-team-increment"></button>
-            <br>
-            <br>
-            <button onclick="reduceFirstTeamScoreFunction()" id="score-first-team-reduce"></button>
-            <br>
-            <br>
-            <br>
-            <button onclick="incrementSecondTeamScoreFunction()" id="score-second-team-increment"></button>
-            <br>
-            <br>
-            <button onclick="reduceSecondTeamScoreFunction()" id="score-second-team-reduce"></button>
-        </div>
-        <div id="setSetting" style="display: none">
-            <p id="setsChange">Sets</p>
-            <br>
-            <button onclick="incrementFirstTeamSetFunction()" id="set-first-team-increment"></button>
-            <br>
-            <br>
-            <button onclick="reduceFirstTeamSetFunction()" id="set-first-team-reduce"></button>
-            <br>
-            <br>
-            <button onclick="incrementSecondTeamSetFunction()" id="set-second-team-increment"></button>
-            <br>
-            <br>
-            <button onclick="reduceSecondTeamSetFunction()" id="set-second-team-reduce"></button>
-        </div>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <button class="col-md-4 btn btn-success my-1 p-3" onclick="incrementSecondTeamScoreFunction()"
+                id="score-second-team-increment" style="height: 160px !important;"></button>
+        <div class="col-md-2"></div>
+        <button class="col-md-4 btn btn-danger my-1 p-3" onclick="reduceSecondTeamScoreFunction()"
+                id="score-second-team-reduce" style="height: 160px !important;"></button>
+        <div class="col-md-1"></div>
+    </div>
+    <div class="row">
+        <button class="col-md-2 btn btn-success my-1 p-3" onclick="incrementFirstTeamSetFunction()" id="set-first-team-increment" style="height: 80px !important;"></button>
+        <div class="col-md-1"></div>
+        <button class="col-md-2 btn btn-danger my-1 p-3" onclick="reduceFirstTeamSetFunction()" id="set-first-team-reduce" style="height: 80px !important;"></button>
+        <div class="col-md-2"></div>
+        <button class="col-md-2 btn btn-success my-1 p-3" onclick="incrementSecondTeamSetFunction()" id="set-second-team-increment" style="height: 80px !important;"></button>
+        <div class="col-md-1"></div>
+        <button class="col-md-2 btn btn-danger my-1 p-3" onclick="reduceSecondTeamSetFunction()" id="set-second-team-reduce" style="height: 80px !important;"></button>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <button class="col-md-3 btn btn-dark my-1 p-3" onclick="resetScore()" id="reset-score" style="height: 100px !important;">Reset Score</button>
+        <div class="col-md-2"></div>
+        <button class="col-md-3 btn btn-dark my-1 p-3" onclick="resetSet()" id="reset-set" style="height: 100px !important;">Reset Set</button>
+        <div class="col-md-2"></div>
     </div>
 </div>
 
 </body>
 
 </html>
+
+<!--<tr>-->
+<!--    <td>-->
+<!--        <button class="btn btn-dark m-1 p-3" onclick="incrementFirstTeamScoreFunction()" id="score-first-team-increment"></button>-->
+<!--    </td>-->
+<!--    <td>-->
+<!--        <button class="btn btn-dark m-1 p-3" onclick="reduceFirstTeamScoreFunction()" id="score-first-team-reduce"></button>-->
+<!--    </td>-->
+<!--    <td>-->
+<!--        <button class="btn btn-dark m-1 p-3" onclick="incrementFirstTeamSetFunction()" id="set-first-team-increment"></button>-->
+<!--    </td>-->
+<!--    <td>-->
+<!--        <button class="btn btn-dark m-1 p-3" onclick="reduceFirstTeamSetFunction()" id="set-first-team-reduce"></button>-->
+<!--    </td>-->
+<!--    <td>-->
+<!--        <button class="btn btn-dark m-1 p-3" onclick="resetScore()" id="reset-score">Reset Score</button>-->
+<!--    </td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--    <td>-->
+<!--        <button class="btn btn-dark m-1 p-3" onclick="incrementSecondTeamScoreFunction()" id="score-second-team-increment"></button>-->
+<!--    </td>-->
+<!--    <td>-->
+<!--        <button class="btn btn-dark m-1 p-3" onclick="reduceSecondTeamScoreFunction()" id="score-second-team-reduce"></button>-->
+<!--    </td>-->
+<!--    <td>-->
+<!--        <button class="btn btn-dark m-1 p-3" onclick="incrementSecondTeamSetFunction()" id="set-second-team-increment"></button>-->
+<!--    </td>-->
+<!--    <td>-->
+<!--        <button class="btn btn-dark m-1 p-3" onclick="reduceSecondTeamSetFunction()" id="set-second-team-reduce"></button>-->
+<!--    </td>-->
+<!--    <td>-->
+<!--        <button class="btn btn-dark m-1 p-3" onclick="resetSet()" id="reset-set">Reset Set</button>-->
+<!--    </td>-->
+<!--</tr>-->

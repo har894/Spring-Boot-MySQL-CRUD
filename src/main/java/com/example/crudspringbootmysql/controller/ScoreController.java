@@ -11,13 +11,26 @@ import java.util.Map;
 @CrossOrigin
 @RestController
 public class ScoreController {
+    public static int currentID = 1;
+
     @Autowired
     private ScoreService scoreService;
 
+    @GetMapping("newgame/{team1}/{team2}")
+    public String setCurrent(@PathVariable String team1, @PathVariable String team2){
+        Score score = scoreService.createGame(team1,team2);
+        return "Game "+ score.getFirstTeamName() + " vs " + score.getSecondTeamName()+" created.";
+    }
+
+    @GetMapping("active/{id}")
+    public String setCurrent(@PathVariable int id){
+        currentID = id;
+        return "ID is " + id;
+    }
+
     @GetMapping("/arduino")
     public Map findScoreByGameId() {
-        int id = 1;
-        Score score = scoreService.getScoreByGameId(id);
+        Score score = scoreService.getScoreByGameId(currentID);
         Map<String, Integer> integerList = new HashMap<>();
         integerList.put("ft",score.getFirstTeamScore());
         integerList.put("st",score.getSecondTeamScore());
@@ -28,25 +41,35 @@ public class ScoreController {
 
     @GetMapping("/gameId/{id}")
     public Score findScoreByGameId(@PathVariable int id) {
-        return scoreService.getScoreByGameId(id);
+        return scoreService.getScoreByGameId(currentID);
+    }
+
+    @PostMapping("/resetScore")
+    public void reset() {
+        scoreService.resetScore(currentID);
+    }
+
+    @PostMapping("/resetSet")
+    public void resetSet() {
+        scoreService.resetSet(currentID);
     }
 
     @PostMapping("/increment/{id}/{teamNumber}")
     public Score incrementScore(@PathVariable int id, @PathVariable int teamNumber) {
-        return scoreService.incrementScore(id, teamNumber);
+        return scoreService.incrementScore(currentID, teamNumber);
     }
 
     @PostMapping("/reduce/{id}/{teamNumber}")
     public Score reduceScore(@PathVariable int id, @PathVariable int teamNumber) {
-        return scoreService.reduceScore(id, teamNumber);
+        return scoreService.reduceScore(currentID, teamNumber);
     }
     @PostMapping("/incrementSet/{id}/{teamNumber}")
     public Score  incrementSetScore(@PathVariable int id, @PathVariable int teamNumber) {
-        return scoreService.incrementSetScore(id, teamNumber);
+        return scoreService.incrementSetScore(currentID, teamNumber);
     }
     @PostMapping("/reduceSet/{id}/{teamNumber}")
     public Score reduceSetScore(@PathVariable int id, @PathVariable int teamNumber) {
-        return scoreService.reduceSetScore(id, teamNumber);
+        return scoreService.reduceSetScore(currentID, teamNumber);
     }
 }
 

@@ -73,5 +73,37 @@ public class ScoreService {
         scoreRepository.save(tempSetScore);
         return scoreRepository.findById(id).orElseGet(null);
     }
+
+    public Score createGame(String team1, String team2) {
+        Score score = new Score();
+        score.setFirstTeamName(team1);
+        score.setSecondTeamName(team2);
+        score.setFirstTeamSetScore(0);
+        score.setSecondTeamSetScore(0);
+        score.setFirstTeamScore(0);
+        score.setSecondTeamScore(0);
+        scoreRepository.save(score);
+        return score;
+    }
+
+    public void resetScore(int currentID) {
+        Optional<Score> tempOptionalScore = scoreRepository.findById(currentID);
+        Score tempSetScore = tempOptionalScore.get();
+
+        tempSetScore.setSecondTeamScore(0);
+        tempSetScore.setFirstTeamScore(0);
+
+        scoreRepository.save(tempSetScore);
+    }
+
+    public void resetSet(int currentID) {
+        Optional<Score> tempOptionalScore = scoreRepository.findById(currentID);
+        Score tempSetScore = tempOptionalScore.get();
+
+        tempSetScore.setSecondTeamSetScore(0);
+        tempSetScore.setFirstTeamSetScore(0);
+
+        scoreRepository.save(tempSetScore);
+    }
 }
 

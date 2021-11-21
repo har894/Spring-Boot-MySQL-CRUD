@@ -1,0 +1,88 @@
+#dashboard {
+    /*float: left;*/
+    /*margin: 0 auto;*/
+    /*width: 960px;*/
+    /*height: auto;*/
+}
+
+#score-box-line {
+    width: 960px;
+    height: 27px;
+    padding: 5px;
+    background: black;
+}
+
+.score-box {
+    display: inline;
+    float: left;
+    width: auto;
+    height: auto;
+    border: solid;
+    border-radius: 25%;
+    overflow: hidden;
+    margin: 10px;
+}
+
+.team-name {
+    float: left;
+    margin: 0 2px;
+    font-size: 10vw;
+    padding: 3px 5px;
+    background: #839B97;
+    text-align: center;
+}
+
+.team-score {
+    float: left;
+    margin: 0 2px;
+    font-size: 10vw;
+    background: #4E4E4E;
+    padding: 4px 5px;
+    text-align: center;
+}
+
+.team-set-score {
+    float: left;
+    margin: 0 2px;
+    font-size: 10vw;
+    background: red;
+    padding: 3px 5px;
+    text-align: center;
+}
+
+/* Setting box */
+.setting-box {
+    display: inline;
+    float: left;
+    padding: 5px;
+    width: 960px;
+    height: 100%;
+    background: red;
+}
+
+table {
+    font: bold 2em "Arial Narrow";
+    text-transform: uppercase;
+    text-align: center;
+    padding: 8px;
+    margin: 32px auto;
+    border-spacing: 8px;
+    border: 1px solid #000;
+    background-color: #102977;
+    color: #ffffff;
+}
+
+.team td {
+    padding: 4px;
+    min-width: 32px;
+    box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.25);
+}
+
+.team td:first-child {
+    text-align: left;
+    padding-right: 32px;
+}
+
+.current-inning {
+    color: #efb244;
+}

@@ -6,20 +6,30 @@
 <head>
     <meta charset="UTF-8">
     <title>ScoreBoard</title>
-    <link th:href="@{/styles.css}" rel="stylesheet"/>
-    <script th:src="@{/pooling.js}"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+    <link rel="stylesheet" th:href="@{/css/bootstrap/bootstrap.min.css}"/>
+    <script th:src="@{/js/pooling.js}"></script>
+    <script th:src="@{/js/bootstrap.bundle.js}"></script>
 </head>
 
 <body>
-<div class="score-box">
-    <p id="first-team-name" class="team-name"></p>
-    <p id="first-team-score" class="team-score"></p>
-    <p id="first-team-set-score" class="team-set-score"></p>
-    <p id="second-team-set-score" class="team-set-score"></p>
-    <p id="second-team-score" class="team-score"></p>
-    <p id="second-team-name" class="team-name"></p>
-</div>
-
+    <table>
+        <tr class="team away">
+            <td class="name" id="first-team-name"></td>
+            <td class="inning current-inning" id="first-team-score"></td>
+            <td class="inning">25</td>
+            <td class="inning">25</td>
+            <td class="total" style="color: #ff0000;" id="first-team-set-score">0</td>
+        </tr>
+        <tr class="team home">
+            <td class="name" id="second-team-name"></td>
+            <td class="inning current-inning" id="second-team-score"></td>
+            <td class="inning">21</td>
+            <td class="inning">14</td>
+            <td class="total" style="color: #ff0000;" id="second-team-set-score">0</td>
+        </tr>
+    </table>
 </body>
 
 </html>
